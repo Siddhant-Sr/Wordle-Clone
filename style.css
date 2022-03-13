@@ -1,0 +1,82 @@
+*{
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+   
+    color: #ffffff;
+}
+
+body{
+    background-color: black;
+}
+
+
+.game-board{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    width: 510px;
+    border-bottom: solid 1px #3a3a3c;
+}
+
+.tile{
+    width: 330px;
+    margin-bottom: 30px;
+}
+
+.keyboard{
+    width: 510px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.keyboard button{
+    width:43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color: #818384;
+    margin: 4px;
+
+}
+
+
+.keyboard button:nth-child(11){
+    margin-left: 20px;
+}
+.keyboard button:nth-child(20),
+.keyboard button:nth-child(28){
+    width: 68px;
+}
+
+
+.tile div{
+    display: flex;
+    
+}
+#guessRow-0{
+    margin-top: 15px;
+}
+.tile .tiles{
+    width: 62px;
+    height: 62px;
+    border: 2px solid #3a3a3c;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    
+}
+
+
+.message {
+    height: 30px;
+    
+}
