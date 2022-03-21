@@ -81,3 +81,10 @@ body{
     height: 30px;
     
 }
+
+.message p{
+    background-color: #818384;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 4px;
+}
