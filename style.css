@@ -90,20 +90,22 @@ body{
 }
 
 .tile.flip{
-    animation: 5s linear flipping;
-}
-@keyframes flipping {
-    0% {
-        transform: rotateX(0deg);
-    }
-    50% {
-        transform: rotateX(90deg);
-    }
-    100% {
-        transform: rotateX(0deg);
-    }
+    
+    animation: flipping 0.5s linear;
 }
 
+ @keyframes flipping {
+    0% {
+    transform: rotateX(0deg);
+}
+    50%{
+        transform: rotateX(90deg);
+    }
+
+    100%{
+        transform: rotateX(0deg);
+    }
+}
 
 /* order is important */
 .gray-overlay{

@@ -1,3 +1,6 @@
+
+
+
 const keyboard = document.querySelector(".keyboard");
 const tile = document.querySelector(".tile");
 const message = document.querySelector(".message");
@@ -6,7 +9,15 @@ let row = 0;
 let col = 0;
 let isGameOver = false;
 
-const wordle = "SUPER";
+let wordle="SUPER"
+
+// const getWordle=()=>{
+//   fetch('http://localhost:8000/word').then(response=> response.json()).then(json => {
+//     console.log(json)
+//     wordle = json.toUpperCase()
+//   }).catch(err => console.log(err))
+// }
+// getWordle();
 const keys = [
   "Q",
   "W",
@@ -75,6 +86,7 @@ keys.forEach((key) => {
 });
 
 const handleClick = (key) => {
+  if(!isGameOver){
   console.log("clicked", key);
   if (key === "«") {
     deleteLetter();
@@ -88,7 +100,8 @@ const handleClick = (key) => {
   }
   addLetter(key);
   console.log(guessRows);
-};
+}
+}
 
 const addLetter = (letter) => {
   if (row < 5 && col < 6) {
@@ -112,10 +125,48 @@ const deleteLetter = () => {
 };
 
 //  currentTile -> col and cirrentRow -> row
+// Dictionary implementation
+// const checkRow = () =>{
+//   const guess = guessRows[row].join('');
+//   if(col>4){
+//     // DICTIONSRY API
+//     fetch('http://localhost:8000/check/?word=${guess}').then(response=>response.json()).then(json=> {
+//       console.log(json)
+//       if(json == 'Entry word not found'){
+//         showMessage('Word does not exist')
+//         return
+//       }
+//       else{
+//         console.log(guess, wordle);
+//         flipTile();
+//         if(wordle==guess){
+//        showMessage('Magnificent!');
+//           isGameOver = true
+//           return
+//       }else{
+//       if(row >=5){
+//         showMessage('Game Over');
+//         isGameOver=true
+//         return
+//       }
+//       if(row<5){
+//         row++;
+//         col = 0;
+//         return;
+//       }
+//     }
+//       }
+//     })
+
+//   }
+// }
+
+
 const checkRow = () =>{
   const guess = guessRows[row].join('');
   if(col>4){
-    console.log(guess, wordle);
+ getData(guess)
+console.log('i am atafter getdata');
     flipTile();
     if(wordle==guess){
    showMessage('Magnificent!');
@@ -136,6 +187,18 @@ const checkRow = () =>{
   }
 }
 
+async function getData(word){
+  const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+  const data = await response.json()
+
+  const title =data.title
+  if(title == "No Definitions Found"){
+    showMessage('Word does not exist');
+    return
+  }
+ 
+
+}
 
 const showMessage = (mes) =>{
   const messageElement = document.createElement('p');
@@ -169,21 +232,15 @@ guess.forEach((guess,index)=> {
     }
 })
 
-guess.forEach((guess,index)=> {
+guess.forEach((guess)=> {
   if(checkWordle.includes(guess.letter)){
     guess.color = 'yellow-overlay'
     checkWordle = checkWordle.replace(guess.letter, '')
   }
 })
 
-
-
-
-
-
   rowTiles.forEach((tile, index) => {
-    const dataLetter = tile.getAttribute('data')
-
+   
    setTimeout(() => {
     tile.classList.add('flip')
     tile.classList.add(guess[index].color);
