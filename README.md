@@ -1,12 +1,10 @@
 # wordle-javascript
-A Game of Wordle with the benefit of 2x API from RapidAPI
+
 
 
 # Getting Started
 
 To start this project please go to RapidAPI to sign up for the [APIs](https://bit.ly/rapidapi-hub). 
-
-Follow the steps in the tutorial [here](https://www.youtube.com/watch?v=mpby4HiElek) on which APIs to use and how to use them.
 
 
 
@@ -34,7 +32,6 @@ Copy the path to this file and paste it in your browser to see the game and play
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-### MIT Licence
 
 Copyright (c) 2020 Ania Kubow
 
