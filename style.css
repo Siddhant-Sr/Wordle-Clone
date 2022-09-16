@@ -1,15 +1,14 @@
-*{
-    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
-   
+* {
     color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
-body{
-    background-color: black;
+body {
+    background-color: #121213;
 }
 
-
-.game-board{
+.game-container {
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -17,108 +16,95 @@ body{
     align-items: center;
 }
 
-.title{
+.title-container {
     text-align: center;
     width: 510px;
     border-bottom: solid 1px #3a3a3c;
-    
 }
 
-.tile{
+.tile-container {
     width: 330px;
     margin-bottom: 30px;
 }
 
-.keyboard{
+.key-container {
     width: 510px;
     display: flex;
     flex-wrap: wrap;
 }
 
-
-
-.keyboard button{
-    width:43px;
+.key-container button {
+    width: 43px;
     height: 58px;
     border-radius: 4px;
     border: none;
     background-color: #818384;
     margin: 4px;
-
 }
 
-
-.keyboard button:nth-child(11){
-    margin-left: 20px;
+.key-container button:nth-child(11) {
+    margin-left: 30px;
 }
-.keyboard button:nth-child(20),
-.keyboard button:nth-child(28){
+
+.key-container button:nth-child(20),
+.key-container button:nth-child(28) {
     width: 68px;
 }
 
-
-.tile div{
+.tile-container div {
     display: flex;
-    
 }
-#guessRow-0{
-    margin-top: 15px;
-}
-.tile .tiles{
+
+.tile-container .tile {
     width: 62px;
     height: 62px;
-    border: 2px solid #3a3a3c;
+    border: 2px solid#3a3a3c;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2px;
-    
 }
 
-
-.message {
+.message-container {
     height: 30px;
-    
 }
 
-.message p{
+.message-container p {
     background-color: #818384;
     border-radius: 10px;
     padding: 10px;
-    margin: 4px;
+    margin: 0;
 }
 
-.tile.flip{
-    
-    animation: flipping 0.5s linear;
+.tile.flip {
+    animation: 0.5s linear flipping;
 }
 
- @keyframes flipping {
+@keyframes flipping {
     0% {
-    transform: rotateX(0deg);
-}
-    50%{
+        transform: rotateX(0deg);
+    }
+    50% {
         transform: rotateX(90deg);
     }
-
-    100%{
+    100% {
         transform: rotateX(0deg);
     }
 }
 
-/* order is important */
-.gray-overlay{
-    background-color: #3a3a3c !important;
-    border: none !important;
-}
 
-.yellow-overlay{
+
+.grey-overlay {
+    background-color: #3a3a3c !important;
+    border:none !important;
+}
+.yellow-overlay {
     background-color: #b59f3a !important;
-    border: none !important;
+    border:none !important;
 }
 
 .green-overlay {
     background-color: #538d4e !important;
-    border: none !important  ;
+    border:none !important;
 }
